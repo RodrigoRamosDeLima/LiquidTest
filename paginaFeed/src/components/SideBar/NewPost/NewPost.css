@@ -1,0 +1,52 @@
+.new-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .new-post h2 {
+    color: #a83eff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .new-post input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .image-preview {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #444;
+  }
+  
+  .new-post textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+    padding: 10px;
+    resize: none;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+  }
+  
+  .new-post button {
+    background-color: #a83eff;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .new-post button:hover {
+    background-color: #8f32cc;
+  }
+  
