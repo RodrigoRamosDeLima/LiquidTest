@@ -45,16 +45,16 @@ function Sidebar() {
           <NavLink to="/" exact className="menu-item" activeClassName="active">
             Feed
           </NavLink>
-          <NavLink to="/my-bar" className="menu-item" activeClassName="active">
+          <NavLink to="/meuBar" className="menu-item" activeClassName="active">
             Meu Bar
           </NavLink>
-          <NavLink to="/explore" className="menu-item" activeClassName="active">
+          <NavLink to="/explorar" className="menu-item" activeClassName="active">
             Explorar
           </NavLink>
-          <NavLink to="/notifications" className="menu-item" activeClassName="active">
+          <NavLink to="/notificações" className="menu-item" activeClassName="active">
             Notificações
           </NavLink>
-          <NavLink to="/profile" className="menu-item" activeClassName="active">
+          <NavLink to="/perfil" className="menu-item" activeClassName="active">
             Perfil
           </NavLink>
           <div className="menu-item" onClick={handleSearchClick}>

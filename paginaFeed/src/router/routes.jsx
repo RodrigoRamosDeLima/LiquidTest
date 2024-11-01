@@ -9,10 +9,10 @@ import BarBot from '../components/SideBar/BarBot/BarBot';
 
 const router = createBrowserRouter([
   { path: '/', element: <Feed /> },
-  { path: '/my-bar', element: <BarBot /> },
-  { path: '/explore', element: <Explore /> },
-  { path: '/notifications', element: <Notifications /> },
-  { path: '/profile', element: <EditProfile /> },
+  { path: '/meuBar', element: <BarBot /> },
+  { path: '/explorar', element: <Explore /> },
+  { path: '/notificações', element: <Notifications /> },
+  { path: '/perfil', element: <EditProfile /> },
 ]);
 
 export default router;
