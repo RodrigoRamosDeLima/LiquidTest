@@ -1,49 +1,34 @@
 .post {
-    background-color: #1c1c1c;
-    border: 2px solid #a83eff;
-    border-radius: 10px;
-    padding: 30px;
-    color: white;
-    margin-bottom: 20px;
-    margin-left: 300px;
-    
-  }
-  
-  .post h2 {
-    margin-bottom: 10px;
-  }
-  
-  .post h3 {
-    color: #fff;
-    margin-bottom: 15px;
-  }
-  
-  .post ul {
-    margin-bottom: 20px;
-  }
-  
-  .post img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;  /* Garante que a imagem nunca ultrapasse o limite do post */
-    height: auto;
-    border-radius: 5px;
-  }
-/*   
-  button {
-    padding: 10px 20px;
-    background-color: #b083f1;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    font-family: "Oswald", sans-serif;
-  }
-  
-  button:hover {
-    background-color: #a071e1;
-  } */
-  button {
+  background-color: #222;
+  border-radius: 10px;
+  padding: 30px;
+  color: white;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.post h2 {
+  margin-bottom: 10px;
+}
+
+.post h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.post ul {
+  margin-bottom: 20px;
+}
+
+.post img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;  /* Garante que a imagem nunca ultrapasse o limite do post */
+  height: auto;
+  border-radius: 5px;
+}
+
+button {
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.2) !important;
   border: none;
@@ -52,8 +37,8 @@
   cursor: pointer;
   font-family: "Oswald", sans-serif;
   font-size: 16px; /* Tamanho da fonte */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important; 
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Adiciona transições para box-shadow */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2); /* Sombra ao redor do botão */
 }
 
 button:hover {
@@ -65,6 +50,7 @@ button:active {
   background-color: #8a60c1;
   transform: scale(0.98); /* Efeito de clique */
 }
+
 .like-section {
   display: flex;
   align-items: center;
@@ -76,16 +62,38 @@ button:active {
   padding: 8px 12px;
   background-color: transparent;
   border: none;
-  color: #a83eff;
+  color: #fff;
   font-size: 16px;
-  cursor: pointer;
-  transition: color 0.3s ease;
+  
+  transition: color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para box-shadow */
+  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.1); /* Corrigido para sombra uniforme */
 }
 
 .like-button:hover {
-  color: #9031d1;
+ 
+  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.3); /* Aumenta a sombra ao passar o mouse */
 }
 
-.like-button.liked {
-  color: #ff3b3f; /* Cor do botão quando curtido */
+.edit-button {
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  border: none;
+  border-radius: 8px;
+  color: white;
+ 
+  font-family: "Oswald", sans-serif;
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Adiciona transições para box-shadow */
+  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.1); /* Corrigido para sombra uniforme */
+}
+
+.edit-button:hover {
+  
+  transform: scale(1.05); /* Leve aumento ao passar o mouse */
+  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.3); /* Aumenta a sombra ao passar o mouse */
+}
+
+.edit-button:active {
+  
+  transform: scale(0.98); /* Efeito de clique */
 }

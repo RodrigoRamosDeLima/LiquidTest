@@ -1,8 +1,11 @@
+// src/components/Feed/Feed.js
 import React from 'react';
 import Post from '../PostContent/Post';
 import './Feed.css';
 
 function Feed() {
+  const currentUser = 'UsuárioAtual'; // Simulação do usuário logado
+
   const posts = [
     {
       id: 1,
@@ -21,6 +24,8 @@ function Feed() {
       ],
       recipe:
         'Adicione todas as bebidas alcoólicas em seu copo de coquetel com gelo. Agite. Coloque um magnífico pedaço de gelo em seu copo. Despeje seu coquetel sobre ele. Decore com suas cerejas ao marasquino.',
+      likes: 5,
+      comments: [{ user: 'Ana', text: 'Parece ótimo!' }],
     },
     {
       id: 2,
@@ -36,6 +41,8 @@ function Feed() {
       ],
       recipe:
         'Faça seu bourbon infusionado com pecan. Adicione o bourbon, o xarope, o crème de cacao amargo e os bitters em um shaker com gelo. Agite. Despeje o conteúdo do shaker em um old fashioned com um grande pedaço de gelo. Decore com uma fatia de pecan. Despeje uma parte da stout suavemente por cima.',
+      likes: 3,
+      comments: [],
     },
     {
       id: 3,
@@ -53,6 +60,8 @@ function Feed() {
       ],
       recipe:
         'Coloque todos os ingredientes no copo Old Fashioned. Adicione cubos de gelo e mexa bem. Decore com rodelas de laranja e sirva.',
+      likes: 7,
+      comments: [{ user: 'Carlos', text: 'Interessante!' }],
     },
     {
       id: 4,
@@ -73,6 +82,8 @@ function Feed() {
       ],
       recipe:
         'Coloque todas as bebidas alcoólicas e o suco de limão em uma coqueteleira. Adicione gelo. Agite. Despeje e coe em seu copo. Adicione uma etapa de coagem para evitar pedaços de gelo. A menos que você prefira, nesse caso, não coe. Decore com um morango. Agora, fique amargo. Ou seja feliz. De qualquer maneira, é um coquetel excelente.',
+      likes: 2,
+      comments: [],
     },
     {
       id: 5,
@@ -88,6 +99,8 @@ function Feed() {
       ],
       recipe:
         'Adicione todos os ingredientes em um shaker com gelo. Adivinha? Agite. Encha o copo com gelo. Coe sua horchata azedada no copo. Decore com um pouco de canela.',
+      likes: 4,
+      comments: [{ user: 'Maria', text: 'Eu adoro horchata!' }],
     },
     {
       id: 6,
@@ -101,14 +114,16 @@ function Feed() {
       ],
       recipe:
         'Abra sua cidra. Abra sua stout. Despeje uma parte da cidra em seu copo pilsner. Pegue uma colher e coloque-a logo acima da cidra. Despeje uma parte da stout suavemente por cima.',
+      likes: 6,
+      comments: [{ user: 'Pedro', text: 'Amo um Black Velvet!' }],
     },
   ];
 
   return (
     <div className="feed">
-      
+      <h1>Feed de Drinks</h1>
       {posts.map((post) => (
-        <Post key={post.id} post={post} />
+        <Post key={post.id} post={post} currentUser={currentUser} />
       ))}
     </div>
   );

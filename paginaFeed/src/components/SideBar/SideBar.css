@@ -1,6 +1,6 @@
 /* Estilo do Sidebar */
 .sidebar {
-  width: 300px;
+  width: 20%;
   color: white;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
 .profile-pic {
   width: 80%;
   margin-top: 50px;
-  margin-bottom: 150px;
+  /* margin-bottom: 150px; */
 }
 
 nav ul {
