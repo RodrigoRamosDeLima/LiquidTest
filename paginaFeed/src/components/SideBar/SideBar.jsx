@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Search from './Search/Search';
-import NewPost from './NewPost/NewPost'; // Importa o componente de criação de posts
+import NewPost from './NewPost/NewPost';
 import './Sidebar.css';
 
-function Sidebar() {
+function Sidebar({ addNewPost }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNewPostOpen, setIsNewPostOpen] = useState(false);
   const searchRef = useRef(null);
@@ -18,7 +18,6 @@ function Sidebar() {
     setIsNewPostOpen(true);
   };
 
-  // Fechar o menu ao clicar fora
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -33,7 +32,7 @@ function Sidebar() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [searchRef, modalRef]);
+  }, []);
 
   return (
     <div className="sidebar">
@@ -71,7 +70,7 @@ function Sidebar() {
       {isNewPostOpen && (
         <div className="modal-background">
           <div className="modal-content" ref={modalRef}>
-            <NewPost />
+            <NewPost addNewPost={addNewPost} closeModal={() => setIsNewPostOpen(false)} />
           </div>
         </div>
       )}
