@@ -10,8 +10,10 @@ function PostModal({ isOpen, post, onClose }) {
         <button className="close-modal" onClick={onClose}>X</button>
         <div className="modal-content">
           <img src={post.image} alt={post.title} className="modal-image" />
-          <h3>{post.title}</h3>
-          <p>{post.description}</p>
+          <h1>{post.title}</h1>
+          <h2>{post.description}</h2>
+          <h3>receita</h3>
+          <h3>descrição</h3>
         </div>
       </div>
     </div>
