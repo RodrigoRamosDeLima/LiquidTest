@@ -1,35 +1,56 @@
 .explore {
-  text-align: center;
+  padding: 20px;
   margin-left: 20%;
 }
 
 .explore-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.drink-link {
-  text-decoration: none;
-  color: inherit;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
 }
 
 .drink-card {
-  width: 120px;
-  height: 120px; /* Altura fixa para uniformizar */
+  background-color: #333;
+  border-radius: 8px;
   padding: 10px;
-  background-color: #222;
-  border: 2px solid #a83eff;
-  border-radius: 10px;
   text-align: center;
-  color: white;
-  display: flex;
-  align-items: center; /* Centraliza o texto verticalmente */
-  justify-content: center; /* Centraliza o texto horizontalmente */
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .drink-card:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.drink-card-image {
+  width: 100%;
+  border-radius: 5px;
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.drink-details {
+  margin-top: 20px;
+  background-color: #444;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.drink-large-image {
+  width: 1000px;
+  height: 643px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #a071e1;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px; /* Espaço acima do botão */
+}
+
+button:hover {
+  background-color: #8a60c1;
 }

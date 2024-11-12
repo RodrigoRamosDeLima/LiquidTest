@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Explore.css';
-import Modal from './Modal'; // Importa o modal
-import Sidebar from '../SideBar'
+import Sidebar from '../SideBar';
 
 const drinks = [
   { name: "BARBADOS PUNCH", link: "./receitas/barbadosPunch.html", image: "../../../public/receitas/barbados.jpg" },
@@ -27,17 +26,16 @@ const drinks = [
 ];
 
 function Explore() {
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState(null);
+  const [selectedDrink, setSelectedDrink] = useState(null);
+  const detailsRef = useRef(null); // Referência para o elemento dos detalhes do drink
 
-  const openModal = (drink) => {
-    setModalContent(drink); // Passa o objeto completo do drink para o modal
-    setModalOpen(true);
+  const showDrinkDetails = (drink) => {
+    setSelectedDrink(drink); // Armazena o drink selecionado no estado
+    detailsRef.current.scrollIntoView({ behavior: 'smooth' }); // Rola suavemente para os detalhes do drink
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
-    setModalContent(null);
+  const clearDrinkDetails = () => {
+    setSelectedDrink(null); // Limpa os detalhes do drink
   };
 
   return (
@@ -47,13 +45,64 @@ function Explore() {
       <p>Descubra novos drinks!</p>
       <div className="explore-content">
         {drinks.map((drink, index) => (
-          <div key={index} className="drink-card" onClick={() => openModal(drink)}>
+          <div key={index} className="drink-card" onClick={() => showDrinkDetails(drink)}>
+            <img src={drink.image} alt={drink.name} className="drink-card-image" />
             <p>{drink.name}</p>
           </div>
         ))}
       </div>
-      {modalContent && (
-        <Modal isOpen={isModalOpen} onClose={closeModal} content={modalContent} />
+
+    {/* Exibe detalhes do drink selecionado */}
+    {selectedDrink && (
+        <div className="drink-details" ref={detailsRef}>
+          <header>
+            <h1>{selectedDrink.name}</h1>
+          </header>
+
+          <img src={selectedDrink.image} alt={selectedDrink.name} className="drink-large-image" />
+
+          <div className="textoReceita">
+            <p>
+              Esta é uma receita antiga. Na verdade, ela contém muitas coisas. O
+              que acontece com essas bebidas tropicais - alguns de vocês podem
+              chamá-las de bebidas Tiki, mas isso é um pouco mais do Oceano
+              Pacífico, não Atlântico, para o meu gosto - é que elas têm muitos
+              ingredientes.
+            </p>
+            <p>
+              Escute aqui! Só porque esta bebida tem muitos componentes, não
+              seja avarento com eles! À menos que você goste de bebidas baratas.
+            </p>
+          </div>
+
+          <div className="textoReceita">
+            <h2>Ingredientes</h2>
+            <ul>
+              <li>- 1 colher de sopa de geléia de goiaba.</li>
+              <li>- 60 ml de água.</li>
+              <li>- Uma colher de sopa de açúcar.</li>
+              <li>- 60 ml de conhaque.</li>
+              <li>- 30 ml de rum.</li>
+              <li>- Meio limão.</li>
+              <li>- 2 fatias de laranja.</li>
+              <li>- Gelo</li>
+              <li>- Copo: Old Fashioned</li>
+            </ul>
+          </div>
+
+          <div className="textoReceita">
+            <h2>Como fazer</h2>
+            <ul>
+              <li>- Esprema o limão no shaker e depois adicione a geleia de goiaba, o açúcar e uma pitada de água morna (30 ml).</li>
+              <li>- Misture para dissolver tudo.</li>
+              <li>- Adicione o restante da água, o conhaque e o rum.</li>
+              <li>- Agite.</li>
+              <li>- Decore com uma fatia de laranja.</li>
+            </ul>
+          </div>
+
+          <button onClick={clearDrinkDetails} className="close-button" style={{ marginTop: '20px' }}>Fechar</button>
+        </div>
       )}
     </div>
   );

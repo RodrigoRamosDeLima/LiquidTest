@@ -3,7 +3,7 @@
     overflow-y: auto;  /* Permite rolagem se houver muitos posts */
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    /* gap: 0px; */
     background-color: #222;
     
     
