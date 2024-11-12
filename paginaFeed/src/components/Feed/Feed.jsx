@@ -1,12 +1,15 @@
+
+
 // src/components/Feed/Feed.js
-import React from 'react';
+import React, { useState } from 'react';
 import Post from '../PostContent/Post';
+import Sidebar from '../SideBar/SideBar';
 import './Feed.css';
 
 function Feed() {
   const currentUser = 'UsuárioAtual'; // Simulação do usuário logado
 
-  const posts = [
+  const [posts, setPosts] = useState([
     {
       id: 1,
       user: 'RODRIGO',
@@ -116,12 +119,20 @@ function Feed() {
         'Abra sua cidra. Abra sua stout. Despeje uma parte da cidra em seu copo pilsner. Pegue uma colher e coloque-a logo acima da cidra. Despeje uma parte da stout suavemente por cima.',
       likes: 6,
       comments: [{ user: 'Pedro', text: 'Amo um Black Velvet!' }],
-    },
-  ];
+    }
+  ]);
+
+  // Função para adicionar novo post ao feed
+  const addNewPost = (newPost) => {
+    setPosts([newPost, ...posts]); // Adiciona o novo post ao início do array
+  };
 
   return (
     <div className="feed">
       <h1>Feed de Drinks</h1>
+
+      <Sidebar addNewPost={addNewPost} currentUser={currentUser} />
+
       {posts.map((post) => (
         <Post key={post.id} post={post} currentUser={currentUser} />
       ))}

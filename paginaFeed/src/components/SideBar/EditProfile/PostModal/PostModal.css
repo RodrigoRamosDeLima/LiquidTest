@@ -1,0 +1,83 @@
+/* PostModal.css */
+.post-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .post-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 60%;
+    width: 100%;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .modal-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .modal-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .modal-description {
+    margin-bottom: 20px;
+  }
+  
+  .modal-ingredients, .modal-instructions, .modal-comments {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .modal-ingredients ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .comment-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .comment-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

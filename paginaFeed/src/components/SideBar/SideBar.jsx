@@ -1,14 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Search from './Search/Search';
-import NewPost from './NewPost/NewPost'; // Importa o componente de criação de posts
+import NewPost from './NewPost/NewPost';
 import './Sidebar.css';
 
-function Sidebar() {
+function Sidebar({ addNewPost }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isNewPostOpen, setIsNewPostOpen] = useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const searchRef = useRef(null);
   const modalRef = useRef(null);
+  const notificationsRef = useRef(null);
 
   const handleSearchClick = () => {
     setIsSearchOpen(!isSearchOpen);
@@ -18,7 +20,10 @@ function Sidebar() {
     setIsNewPostOpen(true);
   };
 
-  // Fechar o menu ao clicar fora
+  const handleNotificationsClick = () => {
+    setIsNotificationsOpen(!isNotificationsOpen);
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -27,13 +32,16 @@ function Sidebar() {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         setIsNewPostOpen(false);
       }
+      if (notificationsRef.current && !notificationsRef.current.contains(event.target)) {
+        setIsNotificationsOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [searchRef, modalRef]);
+  }, []);
 
   return (
     <div className="sidebar">
@@ -51,9 +59,9 @@ function Sidebar() {
           <NavLink to="/explorar" className="menu-item" activeClassName="active">
             Explorar
           </NavLink>
-          <NavLink to="/notificações" className="menu-item" activeClassName="active">
+          <div className="menu-item" onClick={handleNotificationsClick}>
             Notificações
-          </NavLink>
+          </div>
           <NavLink to="/perfil" className="menu-item" activeClassName="active">
             Perfil
           </NavLink>
@@ -71,8 +79,18 @@ function Sidebar() {
       {isNewPostOpen && (
         <div className="modal-background">
           <div className="modal-content" ref={modalRef}>
-            <NewPost />
+            <NewPost addNewPost={addNewPost} closeModal={() => setIsNewPostOpen(false)} />
           </div>
+        </div>
+      )}
+
+      {isNotificationsOpen && (
+        <div className="notifications-dropdown" ref={notificationsRef}>
+          <ul>
+            <li>Você tem uma nova conexão.</li>
+            <li>Alguém comentou no seu post.</li>
+            <li>Seu drink foi curtido!</li>
+          </ul>
         </div>
       )}
     </div>
